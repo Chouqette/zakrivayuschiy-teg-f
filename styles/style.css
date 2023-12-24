@@ -187,18 +187,6 @@
   filter: saturate(250%) hue-rotate(90deg) grayscale(20%) invert(25%) blur(2px);
 }
 
-@supports (text-stroke: 1px var(--lbl-shadow, #fff)) or
-  (-webkit-text-stroke: 1px var(--lbl-shadow, #fff)) {
-  .card__label {
-    text-shadow: none;
-  }
-
-  .card__label {
-    text-shadow: -1px 0 var(--lbl-shadow, #fff), 0 1px var(--lbl-shadow, #fff),
-      1px 0 var(--lbl-shadow, #fff), 0 -1px var(--lbl-shadow, #fff);
-  }
-}
-
 .card__label {
   position: absolute;
   top: 25px;
@@ -211,24 +199,19 @@
   mix-blend-mode: hard-light;
 }
 
+@supports (text-stroke: 1px var(--lbl-shadow, #fff)) or
+  (-webkit-text-stroke: 1px var(--lbl-shadow, #fff)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--lbl-shadow, #fff);
+    text-stroke: 1px var(--lbl-shadow, #fff);
+  }
+}
+
 @media (width < 1440px) {
   .card__label {
     top: 23px;
     right: 12px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  @supports (text-stroke: 1px var(--lbl-shadow, #000)) or
-    (-webkit-text-stroke: 1px var(--lbl-shadow, #000)) {
-    .theme-dark .card__label {
-      text-shadow: none;
-    }
-  }
-
-  .theme-dark .card__label {
-    text-shadow: -1px 0 var(--lbl-shadow, #000), 0 1px var(--lbl-shadow, #000),
-      1px 0 var(--lbl-shadow, #000), 0 -1px var(--lbl-shadow, #000);
   }
 }
 
