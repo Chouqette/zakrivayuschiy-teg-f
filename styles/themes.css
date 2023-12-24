@@ -12,6 +12,7 @@
     linear-gradient(#e7e7e7 0 0.01%, #1a1a1a);
   --lbl-shadow: #fff;
   --btn-pseudo-text: #fff;
+  --hover-color: #fff;
   --like-stroke: #000;
   --stroke-color: var(--accent-color);
 }
@@ -31,6 +32,7 @@
   --lbl-shadow: #000;
   --btn-pseudo-text: #00cc14;
   --like-stroke: #00cc14;
+  --hover-color: #00cc14;
   --stroke-color: var(--accent-color);
 }
 
@@ -49,13 +51,14 @@
       linear-gradient(#e7e7e7 0 0.01%, #1a1a1a);
     --lbl-shadow: #fff;
     --btn-pseudo-text: #fff;
+    --hover-color: #fff;
     --like-stroke: #000;
     --stroke-color: var(--accent-color);
   }
 
   .card__like-button::after {
     color: var(--btn-pseudo-text, #fff);
-    background-color: var(--background-color, #fff);
+    background-color: var(--hover-color, #fff);
   }
 }
 
@@ -75,6 +78,12 @@
     --lbl-shadow: #000;
     --btn-pseudo-text: #00cc14;
     --like-stroke: #00cc14;
+    --hover-color: #00cc14;
     --stroke-color: var(--accent-color);
+  }
+
+  .card__like-button::after {
+    color: var(--btn-pseudo-text, #00cc14);
+    background-color: var(--hover-color, #00cc14);
   }
 }

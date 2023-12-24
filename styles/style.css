@@ -23,9 +23,9 @@
 }
 
 .content-section {
-  border: 2px solid var(--accent-color);
+  border: 3px solid var(--accent-color);
   background-color: var(--background-color);
-  inline-size: var(--sc-wdth, clamp(375px, 48vw, 796px));
+  inline-size: var(--sc-wdth, clamp(375px, 49vw, 796px));
 }
 
 .header__logo {
@@ -51,6 +51,7 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
+  /* проверить с 8 */
   gap: 14px;
 }
 
@@ -61,6 +62,9 @@
   padding: 0;
   text-transform: uppercase;
   background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .theme-menu__button:hover {
@@ -197,14 +201,21 @@
 
 .card__label {
   position: absolute;
-  top: 27px;
-  right: 25px;
+  top: 25px;
+  right: 27px;
   opacity: 0.5;
   font-family: var(--accent-font, fantasy);
   font-size: 14px;
   text-shadow: -1px 0 var(--lbl-shadow, #fff), 0 1px var(--lbl-shadow, #fff),
     1px 0 var(--lbl-shadow, #fff), 0 -1px var(--lbl-shadow, #fff);
   mix-blend-mode: hard-light;
+}
+
+@media (width < 1440px) {
+  .card__label {
+    top: 23px;
+    right: 12px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -223,17 +234,31 @@
 
 .card__text {
   display: flex;
+  font-size: 18px;
   flex-direction: column;
   gap: 27px;
   margin: 25px;
+  line-height: 21px;
 }
 
 .card__buttons {
   display: flex;
   justify-content: center;
-  gap: 12px;
   align-self: flex-end;
-  margin: 0 25px 25px 0;
+  margin: 0 30px 25px 0;
+}
+
+@media (width < 1440px) {
+  .card__buttons {
+    gap: 5px;
+    margin: 0 25px 25px 0;
+  }
+}
+
+.contents-section {
+  border: 4px solid var(--accent-color);
+  background-color: var(--background-color);
+  inline-size: var(--sc-wdth, clamp(375px, 49vw, 796px));
 }
 
 .card__icon-button {
@@ -298,11 +323,12 @@
   left: 0;
   height: 100%;
   color: var(--background-color);
-  background-color: var(--background-color);
+  background-color: var(--hover-color);
   transform: scaleX(0);
   transform-origin: left;
   inline-size: 100%;
   mix-blend-mode: difference;
+  transition: transform 0.5s ease;
 }
 
 .card__like-button:hover::after,
@@ -344,7 +370,7 @@
   inline-size: 21px;
 }
 
-@media (width <=375px) {
+@media (width < 376px) {
   .content-section {
     inline-size: 100vw;
   }
@@ -352,6 +378,7 @@
   .header__theme-menu {
     -webkit-margin-start: 10.5px;
     margin-inline-start: 10.5px;
+    margin-right: -2%;
   }
 
   .main {
